@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_gym_gym,gym.gym,model_gym_gym,base.group_user,1,1,1,1
+class_manager,class_manager,model_gym_classes,group_gym_manager,1,1,1,1

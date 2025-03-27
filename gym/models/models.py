@@ -9,8 +9,8 @@ class Classes(models.Model):
 
      name = fields.Char(string="Title", required = True, help ="name of the gym")
      description = fields.Text()
-     start = fields.Datetime('Starts', required = True, autodate = True)
-     end = fields.Datetime('Ends', required = True, autodate = True)
+     start = fields.Datetime('Starts', required = True,  default=fields.Datetime.now)
+     end = fields.Datetime('Ends', required = True,  default=fields.Datetime.now)
      capacity = fields.Integer("Capacity")
      activityType = fields.Selection([
          ('dance', 'Dance'),
@@ -18,9 +18,4 @@ class Classes(models.Model):
          ('anaerobic', 'Anaerobic'),
          ('relax', 'Relax'),],
         'Type of activity')
-
-     @api.depends('value')
-     def _value_pc(self):
-         for record in self:
-             record.value2 = float(record.value) / 100
 
