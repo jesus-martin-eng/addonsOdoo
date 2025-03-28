@@ -6,12 +6,12 @@ class Animal(models.Model):
     _name = 'animal.zoo'
     _description = 'animal.zoo'
 
-    name = fields.Char()
-    especie = fields.Char()
-    identificador = fields.Char()
+    name = fields.Char(string = "Nombre", required=True)
+    especie = fields.Char(string = "Especie", required=True)
+    identificador = fields.Char(string = "Identificador", required=True)
     pais_procedencia = fields.Many2one('res.country', 'Pais', required=True)
-    edad = fields.Integer()
-    fecha_entrada = fields.Datetime()
+    edad = fields.Integer(string = "Edad", required=True)
+    fecha_entrada = fields.Datetime(string = "Fecha de entrada", required=True)
 
 class Cuidador(models.Model):
     _name = 'cuidador.zoo'
