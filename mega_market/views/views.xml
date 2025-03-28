@@ -1,0 +1,76 @@
+<odoo>
+  <data>
+    <!-- Vista de Electrodomésticos -->
+
+    <record model="ir.ui.view" id="view_electrodomestico_form">
+      <field name="name">megamarket.electrodomestico.form</field>
+      <field name="model">megamarket.electrodomestico</field>
+      <field name="arch" type="xml">
+      <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="codigo"/>
+              <field name="pais_id"/>
+              <field name="importe_compra"/>
+              <field name="moneda_id"/>
+              <field name="precio_venta"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Vista de Clientes -->
+    <record model="ir.ui.view" id="view_cliente_form">
+      <field name="name">megamarket.cliente.form</field>
+      <field name="model">megamarket.cliente</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="apellidos"/>
+              <field name="nif"/>
+              <field name="direccion"/>
+              <field name="fecha_nacimiento"/>
+              <field name="telefono"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Acción para los Electrodomésticos -->
+    <record model="ir.actions.act_window" id="action_electrodomestico_form">
+      <field name="name">Electrodomésticos</field>
+      <field name="res_model">megamarket.electrodomestico</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Acción para los Clientes -->
+    <record model="ir.actions.act_window" id="action_cliente_form">
+      <field name="name">Clientes</field>
+      <field name="res_model">megamarket.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menú principal -->
+    <menuitem id="menu_megamarket" name="MegaMarket"/>
+
+    <!-- Submenú Electrodomésticos -->
+    <menuitem id="menu_megamarket_electrodomestico"
+              name="Electrodomésticos"
+              parent="menu_megamarket"
+              action="action_electrodomestico_form"/>
+
+    <!-- Submenú Clientes -->
+    <menuitem id="menu_megamarket_cliente"
+              name="Clientes"
+              parent="menu_megamarket"
+              action="action_cliente_form"/>
+  </data>
+</odoo>
