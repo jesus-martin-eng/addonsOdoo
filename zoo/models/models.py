@@ -13,5 +13,18 @@ class Animal(models.Model):
     edad = fields.Integer()
     fecha_entrada = fields.Datetime()
 
+class Cuidador(models.Model):
+    _name = 'cuidador.zoo'
+    _description = 'cuidador.zoo'
+
+    name = fields.Char(string = "Nombre", required=True, )
+    apellidos = fields.Char(string = "Apellidos", required=True)
+    cargo = fields.Selection([
+        ('supervisor', 'Supervisor'),
+        ('encargado', 'Encargado'),
+        ('cuidador', 'Cuidador')
+    ], string='Cargo', required=True)
+    fecha_incorporacion = fields.Datetime(string = "Fecha de Incorporación", required=True)
+
 
 
