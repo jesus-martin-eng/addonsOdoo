@@ -42,7 +42,7 @@
 
     <!-- Vista de Espacio -->
 
-    <record model="ir.ui.view" id="view_cuidador_form">
+    <record model="ir.ui.view" id="view_espacio_form">
       <field name="name">espacio.zoo.form</field>
       <field name="model">espacio.zoo</field>
       <field name="arch" type="xml">
