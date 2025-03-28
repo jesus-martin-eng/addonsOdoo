@@ -1,60 +1,104 @@
 <odoo>
   <data>
-    <!-- explicit list view definition -->
-<!--
-    <record model="ir.ui.view" id="zoo.list">
-      <field name="name">Zoo list</field>
-      <field name="model">zoo.zoo</field>
+    <!-- Vista de Animal -->
+
+    <record model="ir.ui.view" id="view_animal_form">
+      <field name="name">animal.zoo.form</field>
+      <field name="model">animal.zoo</field>
       <field name="arch" type="xml">
-        <tree>
-          <field name="name"/>
-          <field name="value"/>
-          <field name="value2"/>
-        </tree>
+      <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="especie"/>
+              <field name="identificador"/>
+              <field name="pais_procedencia"/>
+              <field name="edad"/>
+              <field name="fecha_entrada"/>
+            </group>
+          </sheet>
+        </form>
       </field>
     </record>
--->
 
-    <!-- actions opening views on models -->
-<!--
-    <record model="ir.actions.act_window" id="zoo.action_window">
-      <field name="name">Zoo window</field>
-      <field name="res_model">zoo.zoo</field>
+    <!-- Vista de Cuidador -->
+
+    <record model="ir.ui.view" id="view_cuidador_form">
+      <field name="name">cuidador.zoo.form</field>
+      <field name="model">cuidador.zoo</field>
+      <field name="arch" type="xml">
+      <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="apellidos"/>
+              <field name="cargo"/>
+              <field name="fecha_incorporacion"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vista de Espacio -->
+
+    <record model="ir.ui.view" id="view_cuidador_form">
+      <field name="name">espacio.zoo.form</field>
+      <field name="model">espacio.zoo</field>
+      <field name="arch" type="xml">
+      <form>
+          <sheet>
+            <group>
+              <field name="codigo_espacio"/>
+              <field name="tipo"/>
+              <field name="area_tematica"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+<!-- Acción para Animal -->
+    <record model="ir.actions.act_window" id="action_animal_form">
+      <field name="name">Animal</field>
+      <field name="res_model">animal.zoo</field>
       <field name="view_mode">tree,form</field>
     </record>
--->
 
-    <!-- server action to the one above -->
-<!--
-    <record model="ir.actions.server" id="zoo.action_server">
-      <field name="name">Zoo server</field>
-      <field name="model_id" ref="model_zoo_zoo"/>
-      <field name="state">code</field>
-      <field name="code">
-        action = {
-          "type": "ir.actions.act_window",
-          "view_mode": "tree,form",
-          "res_model": model._name,
-        }
-      </field>
+<!-- Acción para Cuidador -->
+    <record model="ir.actions.act_window" id="action_cuidador_form">
+      <field name="name">Cuidador</field>
+      <field name="res_model">cuidador.zoo</field>
+      <field name="view_mode">tree,form</field>
     </record>
--->
 
-    <!-- Top menu item -->
-<!--
-    <menuitem name="Zoo" id="zoo.menu_root"/>
--->
-    <!-- menu categories -->
-<!--
-    <menuitem name="Menu 1" id="zoo.menu_1" parent="zoo.menu_root"/>
-    <menuitem name="Menu 2" id="zoo.menu_2" parent="zoo.menu_root"/>
--->
-    <!-- actions -->
-<!--
-    <menuitem name="List" id="zoo.menu_1_list" parent="zoo.menu_1"
-              action="zoo.action_window"/>
-    <menuitem name="Server to list" id="zoo" parent="zoo.menu_2"
-              action="zoo.action_server"/>
--->
+<!-- Acción para Espacio -->
+    <record model="ir.actions.act_window" id="action_espacio_form">
+      <field name="name">Espacio</field>
+      <field name="res_model">espacio.zoo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú principal -->
+    <menuitem id="menu_zoo" name="Zoo"/>
+
+    <!-- Submenú Animal -->
+    <menuitem id="menu_zoo_animal"
+              name="Animal"
+              parent="menu_zoo"
+              action="action_animal_form"/>
+
+    <!-- Submenú Cuidador -->
+    <menuitem id="menu_zoo_cuidador"
+              name="Cuidador"
+              parent="menu_zoo"
+              action="action_cuidador_form"/>
+
+    <!-- Submenú Espacio -->
+    <menuitem id="menu_zoo_espacio"
+              name="Espacio"
+              parent="menu_zoo"
+              action="action_espacio_form"/>
   </data>
 </odoo>
